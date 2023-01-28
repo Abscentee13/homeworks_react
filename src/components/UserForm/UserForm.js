@@ -9,7 +9,7 @@ const submit = async (car) => {
 };
 
 
-const UserForm = ({setCars,updateCar}) => {
+const UserForm = ({setUsers,updateUser}) => {
     const {register, handleSubmit, reset, formState: {errors, isValid}, setValue} = useForm({
         mode: 'all',
         resolver: joiResolver(userValidator)
