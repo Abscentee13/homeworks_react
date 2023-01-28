@@ -1,6 +1,7 @@
+import React from "react";
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
-import {userValidator} from "./validators";
+import {userValidator} from "../validators/userValidator";
 
 
 const submit = async (car) => {
@@ -15,12 +16,14 @@ const UserForm = ({setCars,updateCar}) => {
     });
 
     return(
-        <form onSubmit={handleSubmit(submit)}>
-            <input type="text" placeholder={'id'} {...register('brand')}/>
-            {errors.brand && <span>{errors.brand.message}</span>}
-            <input type="text" placeholder={'name'} {...register('price')}/>
-            {errors.price && <span>{errors.price.message}</span>}
-        </form>
+        <div>
+            <form onSubmit={handleSubmit(submit)}>
+                <input type="text" placeholder={'id'} {...register('id')}/>
+                {errors.id && <span>{errors.id.message}</span>}
+                <input type="text" placeholder={'name'} {...register('name')}/>
+                {errors.name && <span>{errors.id.message}</span>}
+            </form>
+        </div>
     );
 };
 
