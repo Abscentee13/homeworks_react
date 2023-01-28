@@ -1,17 +1,30 @@
-// import {useForm} from "react-hook-form";
-// import {joiResolver} from "@hookform/resolvers/joi";
+import {useForm} from "react-hook-form";
+import {joiResolver} from "@hookform/resolvers/joi";
+import {userValidator} from "./validators";
 
 
+const submit = async (car) => {
+    document.write('SUBMIT')
+};
 
 
-const UserForm = () =>{
+const UserForm = ({setCars,updateCar}) => {
+    const {register, handleSubmit, reset, formState: {errors, isValid}, setValue} = useForm({
+        mode: 'all',
+        resolver: joiResolver(userValidator)
+    });
 
     return(
-        <div>
-            <input type="text"/>
-        </div>
+        <form onSubmit={handleSubmit(submit)}>
+            <input type="text" placeholder={'id'} {...register('brand')}/>
+            {errors.brand && <span>{errors.brand.message}</span>}
+            <input type="text" placeholder={'name'} {...register('price')}/>
+            {errors.price && <span>{errors.price.message}</span>}
+        </form>
     );
-}
+};
+
+export {UserForm};
 
 
 
