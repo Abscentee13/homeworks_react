@@ -8,7 +8,7 @@ const User = ({user,setCreateUser}) => {
             <div>id: {id}</div>
             <div>name: {name}</div>
 
-            <button onClick={()=>setCreateUser(user)}>update</button>
+            <button onClick={()=>setCreateUser(user)}>create</button>
             <button>delete</button>
 
         </div>
