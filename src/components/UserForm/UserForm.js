@@ -4,7 +4,7 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {userValidator} from "../validators/userValidator";
 
 
-const submit = async (car) => {
+const submit = async (user) => {
     document.write('SUBMIT')
 };
 
