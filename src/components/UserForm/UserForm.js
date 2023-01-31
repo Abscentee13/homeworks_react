@@ -1,29 +1,48 @@
 import React from "react";
+import {useEffect} from "react";
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
+
+import "./UserForm.css";
+import {userService} from "../../services/userService";
 import {userValidator} from "../validators/userValidator";
 
 
-const submit = async (user) => {
-    document.write('SUBMIT')
-};
+const UserForm = ({setUsers, createUser}) => {
+            const {register, handleSubmit, reset, formState: {errors, isValid}, setValue} = useForm({
+                mode: 'all'
+                //,
+                //resolver: joiResolver(userValidator)
+            });
 
+            useEffect(() => {
+                if (createUser){
+                    setValue('id', createUser.id)
+                    setValue('name', createUser.name)
+                    setValue('username', createUser.username)
+                }
+            }, [createUser]);
 
-const UserForm = ({setUsers,updateUser}) => {
-    const {register, handleSubmit, reset, formState: {errors, isValid}, setValue} = useForm({
-        mode: 'all',
-        resolver: joiResolver(userValidator)
-    });
+            const submitCreateUser = async (user) => {
+                console.log('yes');
+                const {data} = await userService.create(user);
+                setUsers(prev=>[...prev, data]);
+                reset();
+            };
+
 
     return(
-        <div>
-            <form onSubmit={handleSubmit(submit)}>
-                <input type="text" placeholder={'id'} {...register('id')}/>
+            <form id="user-form" className="user-form" onSubmit={handleSubmit(submitCreateUser)}>
+                <input className="user-block__user-data-field" type="text" placeholder={'101'} {...register('id')}/>
                 {errors.id && <span>{errors.id.message}</span>}
-                <input type="text" placeholder={'name'} {...register('name')}/>
+                <input className="user-block__user-data-field" type="text" placeholder={'name'} {...register('name')}/>
                 {errors.name && <span>{errors.name.message}</span>}
+               <input className="user-block__user-data-field" type="text" placeholder={'username'} {...register('username')}/>
+                {errors.username && <span>{errors.username.message}</span>}
+                <input className="user-block__user-data-field" type="text" placeholder={'email'} {...register('email')}/>
+                {errors.email && <span>{errors.email.message}</span>}
+                <input className="button_detail" type="submit" value="SEND"/>
             </form>
-        </div>
     );
 };
 

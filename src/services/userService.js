@@ -4,7 +4,7 @@ import {urls} from "../configs/endPoints";
 const userService = {
     getAll: () => axiosService.get(urls.users),
     create: (newUser) => axiosService.post(urls.users, newUser),
-    //updateById: (id, data) => axiosService.put(`${urls.users}/${id}`, data),
+    updateById: (id, data) => axiosService.put(`${urls.users}/${id}`, data),
    //deleteById: (id) => axiosService.delete(`${urls.users}/${id}`)
 }
 
