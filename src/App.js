@@ -1,24 +1,27 @@
 import React from "react";
 import {useEffect, useState} from 'react';
 
+
 import "./App.css";
 
 import {UserForm, Users} from './components';
 import {userService} from './services/userService';
 
 
-const App = () => {
-      const [users, setUsers] = useState([]);
-      const [createUser, setCreateUser] = useState(null);
+const App = ({user}) => {
 
-      useEffect(() => {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
         userService.getAll().then(({data})=>setUsers([...data]))
-      }, []);
+    }, []);
+
+    useEffect((users) => {user = users[0]});
 
       return (
           <div className="main-block">
-                  <UserForm setUsers={setUsers} createUser={createUser}/>
-                  <Users users={users} setCreateUser={setCreateUser}/>
+                  <UserForm user={user}/>
+                  <Users users={users}/>
           </div>
       );
 };

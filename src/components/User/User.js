@@ -5,6 +5,7 @@ import './User.css';
 import {userService} from "../../services/userService";
 import {UserForm} from "../UserForm/UserForm";
 import {render} from "react-dom";
+import {App} from "../../App";
 
 
 
@@ -35,7 +36,7 @@ const User = ({user}) => {
         return(
             document.getElementById("user-form")
                     .render(
-                        <UserForm setUsers={setUsers} createUser={createUser}/>
+                        <App/>
             )
         );
     };
