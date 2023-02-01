@@ -1,9 +1,13 @@
 .user-block{
+    background-color: bisque;
+
     border: medium solid bisque;
     border-bottom-left-radius: 10%;
     border-top-right-radius: 10%;
     border-bottom-right-radius: 10%;
+
     width: 90%;
+
     margin: 5px 0px 5px 0px ;
     padding: 10px 30px 10px 30px ;
 
@@ -18,7 +22,7 @@
 .user-block__user-data-field{
     width: 90%;
 
-    margin: 2px 2px 2px 42px ;
+    margin: 2px 2px 2px 2px ;
     padding: 0px 0px 0px 15px ;
 
     border-left-style: double;

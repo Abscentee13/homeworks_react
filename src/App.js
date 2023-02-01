@@ -8,19 +8,26 @@ import {UserForm, Users} from './components';
 import {userService} from './services/userService';
 
 
-const App = ({user}) => {
+const App = () => {
 
     const [users, setUsers] = useState([]);
+    const [createUser, setCreateUser] = useState(null);
+
 
     useEffect(() => {
         userService.getAll().then(({data})=>setUsers([...data]))
     }, []);
 
-    useEffect((users) => {user = users[0]});
+   const user = {
+    "id": 111,
+    "name": "Write Name",
+    "username": "Write Username",
+    "email": "eeeeee@www.www"
+    }
 
       return (
           <div className="main-block">
-                  <UserForm user={user}/>
+                  <UserForm user={user} setUsers={setUsers} createUser={createUser}/>
                   <Users users={users}/>
           </div>
       );

@@ -8,8 +8,10 @@ import {userService} from "../../services/userService";
 import {userValidator} from "../validators/userValidator";
 
 
-const UserForm = ({user}) => {
+const UserForm = ({user, setUsers,createUser}) => {
             const {id, name, username, email} = user;
+
+
             const {register, handleSubmit, reset, formState: {errors, isValid}, setValue} = useForm({
                 mode: 'all'
                 //,
@@ -17,14 +19,10 @@ const UserForm = ({user}) => {
             });
 
 
-    const [createUser, setCreateUser] = useState(null);
-
-    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         userService.getAll().then(({data})=>setUsers([...data]))
     }, []);
-
 
 
 
@@ -33,6 +31,7 @@ const UserForm = ({user}) => {
                     setValue('id', createUser.id)
                     setValue('name', createUser.name)
                     setValue('username', createUser.username)
+                    setValue('email', createUser.email)
                 }
             }, [createUser]);
 
