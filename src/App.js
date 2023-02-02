@@ -1,10 +1,12 @@
 import React from "react";
-import {useReducer} from "react";
+import {Posts, Comments} from "./components";
+
 
 const App = () => {
   return (
-    <div className="App">
-        fffffffffff
+    <div>
+        <Posts/>
+        <Comments/>
     </div>
   );
 }
