@@ -1,0 +1,8 @@
+.petBlock{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.petElements{
+    display: flex;
+}

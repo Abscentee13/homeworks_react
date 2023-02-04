@@ -6,7 +6,7 @@ const Dogs = ({dogs,dispatch}) => {
 
     return (
         <div className={css.petsContainer}>
-            {dogs.map(dog=><Dog key={dog.id} dog={dog} dispatch={dispatch}/>)}
+            {dogs.map(dog => <Dog key = {dog.id} dog = {dog} dispatch = {dispatch} />)}
         </div>
     );
 };

@@ -49,12 +49,12 @@ const App = () => {
 
     return (
         <div className={css.App}>
-            <div>
+            <div className={css.container}>
                 <input type="text" ref={catInp}/>
                 <button onClick={createCat}>createCat</button>
                 <Cats cats={state.cats} dispatch={dispatch}/>
             </div>
-            <div>
+            <div  className={css.container}>
                 <input type="text" ref={dogInp}/>
                 <button onClick={createDog}>createDog</button>
                 <Dogs dogs={state.dogs} dispatch={dispatch}/>
