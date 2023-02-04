@@ -3,7 +3,7 @@ const Cat = ({cat,dispatch}) => {
 
     return (
         <div>
-            {id} {name}
+            {id}: {name}
             <button onClick={()=>dispatch({type:'DELETE_CAT', payload:id})}>delete</button>
         </div>
     );

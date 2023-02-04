@@ -15,6 +15,7 @@ const reducer = (state, action) => {
         case 'DELETE_CAT':
             const index = state.cats.findIndex(cat => cat.id === action.payload);
             state.cats.splice(index, 1)
+            action.type = ''; //якщо не обнулити - видаляє по два чогось
             return {...state}
         case 'ADD_DOG':
             const [lastDog] = state.dogs.slice(-1);
@@ -22,7 +23,9 @@ const reducer = (state, action) => {
             return {...state, dogs: [...state.dogs, {id: idDog, name: action.payload}]}
         case 'DELETE_DOG':
             const indexDog = state.dogs.findIndex(dog => dog.id === action.payload);
+
             state.dogs.splice(indexDog, 1)
+            action.type = ''; //якщо не обнулити - видаляє по два чогось
             return {...state}
         default:
             return {...state}
