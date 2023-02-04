@@ -1,3 +1,4 @@
+import {DeleteButton} from "../../components";
 
 const Dog = ({dog,dispatch}) => {
     const {id, name} = dog;
@@ -9,7 +10,7 @@ const Dog = ({dog,dispatch}) => {
     return (
         <div>
             {id}) {name}
-            <button onClick={deleteDog}>delete</button>
+            <DeleteButton dispatch={dispatch} actionType= {'DELETE_DOG'} id={id} />
         </div>
     );
 };

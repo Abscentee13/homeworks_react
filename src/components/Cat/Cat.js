@@ -1,12 +1,14 @@
-import '../Pet.css';
+import css from '../Pet.css';
+
+import {DeleteButton} from '../../components';
 
 const Cat = ({cat,dispatch}) => {
     const {id, name} = cat;
 
     return (
-        <div className="pet-block">
+        <div className={css.petBlock}>
             {id}: {name}
-            <button onClick={()=>dispatch({type:'DELETE_CAT', payload:id})}>delete</button>
+            <DeleteButton dispatch={dispatch} actionType= {'DELETE_CAT'} id={id} />
         </div>
     );
 };
