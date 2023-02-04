@@ -1,0 +1,15 @@
+.comment-block{
+    border: medium solid bisque;
+    width: 85%;
+    margin: 5px 5px 5px 5px ;
+    padding: 5px 5px 5px 5px ;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+
+    font-size: 18px;
+    background: linear-gradient(-45deg, #556655, #CCDDCC);
+}

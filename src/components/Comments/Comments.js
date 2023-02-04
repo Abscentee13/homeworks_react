@@ -1,5 +1,8 @@
 import React from "react";
 import {Component} from "react";
+
+import './Comments.css';
+
 import {commentService} from "../../services";
 import {Comment} from "../Comment/Comment";
 
@@ -14,7 +17,7 @@ class Comments extends Component{
 
     render() {
         return(
-            <div>
+            <div className="comment-block">
                 {this.state.comments.map(comment=><Comment key={comment.id} comment={comment}/>)}
             </div>
         )
