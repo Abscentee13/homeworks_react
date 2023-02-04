@@ -1,4 +1,4 @@
-import {Cat} from "../../components";
+import {Cat} from "../Cat/Cat";
 
 const Cats = ({cats,dispatch}) => {
     return (

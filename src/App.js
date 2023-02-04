@@ -1,7 +1,10 @@
 import {Cats} from "./components";
 import {Dogs} from "./components";
+
 import css from './App.module.css';
+
 import {useReducer, useRef} from "react";
+
 
 const reducer = (state, action) => {
     switch (action.type) {

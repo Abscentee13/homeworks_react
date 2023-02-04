@@ -1,4 +1,2 @@
-export * from './Cat';
-export * from './Cats';
-export * from './Dog';
-export * from './Dogs';
+export {Cats} from './Cats/Cats';
+export {Dogs} from './Dogs/Dogs';
